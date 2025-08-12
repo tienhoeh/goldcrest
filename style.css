@@ -87,7 +87,7 @@ body {
 
 /* Hero Section */
 .hero {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.25)), url('images/manchester_skyline.jpeg');
+    background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), url('images/manchester_skyline.jpeg');
     background-size: cover;
     background-position: center;
     color: var(--white-color);
