@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Goldcrest Holdings (UK) Ltd</title>
+    <style>
+        :root {
+            --primary-color: #0A2342; /* Deep Navy Blue */
+            --primary-color-light: #1a3352; /* Lighter shade of navy blue */
+            --secondary-color: #D4AF37; /* Muted Gold */
+            --text-color: #333;
+            --bg-color: #f8f9fa;
+            --white-color: #ffffff;
+        }
+        body {
+            font-family: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+        }
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        /* Header */
+        .header {
+            background: var(--white-color);
+            padding: 1rem 0;
+            border-bottom: 1px solid #e0e0e0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        .header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+        .logo span {
+            color: var(--secondary-color);
+        }
+        .nav a {
+            color: var(--primary-color);
+            text-decoration: none;
+            margin-left: 20px;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+        .nav a:hover {
+            color: var(--secondary-color);
+        }
+        /* Hero Section */
+        .hero {
+            background-image: url('images/manchester_skyline.jpeg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: var(--white-color);
+            padding: 120px 0;
+            text-align: center;
+        }
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto;
+            opacity: 0.9;
+        }
+        /* Section Styling */
+        .section {
+            padding: 80px 0;
+        }
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            color: var(--primary-color);
+        }
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.1rem;
+            color: #666;
+            margin-bottom: 50px;
+        }
+        /* Our Mandate Section */
+        #about .about-content {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+        }
+        
+        /* Leadership Section */
+        #leadership {
+            background-color: #f0f0f0; /* Silver-like background */
+            /* TEST: Adding library background image - can revert to previous version if needed */
+            background-image: url('images/library.jpeg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            position: relative;
+        }
+        
+        #leadership::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(240, 240, 240, 0.8); /* Semi-transparent overlay */
+            z-index: 1;
+        }
+        
+        #leadership > .container {
+            position: relative;
+            z-index: 2;
+        }
+        
+        #leadership .section-title,
+        #leadership .section-subtitle {
+            text-align: center;
+        }
+        
+        /* Change text color to lighter navy blue for better visibility on background */
+        #leadership .section-subtitle,
+        #leadership .leadership-bio .title,
+        #leadership .leadership-bio p {
+            color: var(--primary-color-light);
+        }
+        
+        .leadership-content {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .leadership-photo {
+            flex: 0 0 250px;
+            border-radius: 50%;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .leadership-photo img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        .leadership-bio h3 {
+            color: var(--primary-color);
+            margin-top: 0;
+        }
+        
+        .leadership-bio .title {
+            color: var(--secondary-color);
+            font-weight: 600;
+            margin-bottom: 20px;
+            display: block;
+        }
+        
+        @media (max-width: 768px) {
+            .leadership-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .leadership-photo {
+                flex: 0 0 auto;
+                max-width: 200px;
+                margin: 0 auto;
+            }
+        }
+        /* Focus Section */
+        #focus {
+            background-color: var(--primary-color-light);
+            color: var(--white-color);
+        }
+        
+        #focus .section-title {
+            color: var(--white-color);
+        }
+        
+        #focus .section-subtitle {
+            color: rgba(255, 255, 255, 0.8);
+        }
+        
+        .focus-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        .focus-item {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .focus-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.25);
+        }
+        
+        .focus-item img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+        .focus-item h3 {
+            color: var(--primary-color);
+            margin-top: 0;
+        }
+        
+        #focus .focus-item p {
+            color: var(--text-color);
+        }
+        /* Contact Section */
+        #contact {
+            background-color: var(--white-color);
+        }
+        .contact-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+        .contact-info p {
+            margin-bottom: 1rem;
+        }
+        .contact-form input, .contact-form textarea {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 15px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            font-family: inherit;
+            font-size: 1rem;
+        }
+        .btn {
+            background-color: var(--secondary-color);
+            color: var(--primary-color);
+            padding: 12px 25px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+        .btn:hover {
+            background-color: #c5a032;
+        }
+        /* Footer */
+        .footer {
+            background: var(--primary-color);
+            color: var(--white-color);
+            text-align: center;
+            padding: 30px 0;
+        }
+        .footer p {
+            margin: 0;
+            opacity: 0.8;
+        }
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.5rem; }
+            .contact-wrapper { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="header">
+        <div class="container">
+            <div class="logo">Goldcrest<span>Holdings</span></div>
+            <nav class="nav">
+                <a href="#about">About</a>
+                <a href="#leadership">Leadership</a>
+                <a href="#focus">Focus</a>
+                <a href="#contact">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <h1>Goldcrest Holdings (UK) Ltd</h1>
+                <p>A private investment holding company focused on strategic family office lending and capital management.</p>
+            </div>
+        </section>
+
+        <section id="about" class="section">
+            <div class="container">
+                <h2 class="section-title">Our Mandate</h2>
+                <p class="section-subtitle">Clarity, Stability, and Purpose-Driven Investment</p>
+                <div class="about-content">
+                    <p>Goldcrest Holdings (UK) Ltd is a private investment vehicle with a clear and specific mandate. Our sole activity is the strategic management of a long-term debt asset portfolio within the United Kingdom. We are focused on generating consistent investment income through private credit instruments, ensuring diligent oversight and capital preservation in line with our director's long-term financial strategy. Founded by Raj Chawla, the company represents his vision for building a stable, purpose-driven investment firm that prioritizes long-term value creation over short-term gains.</p>
+                </div>
+            </div>
+        </section>
+        
+        <section id="leadership" class="section">
+            <div class="container">
+                <h2 class="section-title">Leadership</h2>
+                <p class="section-subtitle">Meet the expert guiding our vision</p>
+                <div class="leadership-content">
+                    <div class="leadership-photo">
+                        <img src="images/Raj.jpeg" alt="Raj Chawla">
+                    </div>
+                    <div class="leadership-bio">
+                        <h3>Raj Chawla</h3>
+                        <span class="title">Corporate Equity Investor | Philanthropist | International Charitable Fund | Property Investor</span>
+                        <p>"With over two decades of experience in global financial markets, Raj Chawla has established himself as a distinguished corporate equity investor and strategic property investor with a focus on international markets. As a seasoned professional with deep expertise in securities and real estate, Raj has successfully managed diverse investment portfolios spanning multiple asset classes.</p>
+                        <p>Complementing his investment acumen, Raj is a committed philanthropist who actively supports causes through international charitable funds, demonstrating a strong dedication to social responsibility and community development. His approach to business combines financial excellence with meaningful impact, reflecting a holistic vision of wealth creation that serves both investors and society.</p>
+                        <p>Raj founded Goldcrest Holdings (UK) Ltd to leverage his extensive market knowledge and build a premier investment portfolio focused on strategic family office lending and capital management. His leadership is characterized by a commitment to long-term value creation, capital preservation, and purpose-driven investment strategies."</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="focus" class="section">
+            <div class="container">
+                <h2 class="section-title">Investment Focus</h2>
+                 <p class="section-subtitle">Our activities are precise and limited to the following core functions:</p>
+                <div class="focus-grid">
+                    <div class="focus-item">
+                        <img src="images/debt_management.jpeg" alt="Debt Asset Management">
+                        <h3>Debt Asset Management</h3>
+                        <p>Strategic management of secured debt assets, with a focus on rigorous compliance and performance monitoring.</p>
+                    </div>
+                    <div class="focus-item">
+                        <img src="images/interest_income_generation.jpeg" alt="Interest Income Generation">
+                        <h3>Interest Income Generation</h3>
+                        <p>The primary financial activity is the receipt of investment income generated as interest from our managed debt portfolio.</p>
+                    </div>
+                    <div class="focus-item">
+                        <img src="images/capital_presevation.jpeg" alt="Capital Preservation">
+                        <h3>Capital Preservation</h3>
+                        <p>A core focus on preserving the underlying capital value of our assets in preparation for future capital distribution upon the eventual winding down of the company.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="section">
+            <div class="container">
+                <h2 class="section-title">Contact Us</h2>
+                 <p class="section-subtitle">For official correspondence and enquiries.</p>
+                <div class="contact-wrapper">
+                    <div class="contact-info">
+                        <h3>Corporate Information</h3>
+                        <p><strong>Goldcrest Holdings (UK) Ltd</strong></p>
+                        <p><strong>Registered Office:</strong><br>[Enter UK Registered Address Line 1]<br>[Enter City, Postal Code]<br>United Kingdom</p>
+                        <p><strong>Email:</strong><br>enquiries@goldcrestholdings.co.uk</p>
+                        <p><em>Please note: The company is not seeking external investment or providing services to the public. Enquiries should be limited to official or compliance-related matters.</em></p>
+                    </div>
+                    <form class="contact-form">
+                        <input type="text" name="name" placeholder="Your Name" required>
+                        <input type="email" name="email" placeholder="Your Email" required>
+                        <textarea name="message" rows="6" placeholder="Your Message" required></textarea>
+                        <button type="submit" class="btn">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Goldcrest Holdings (UK) Ltd. All Rights Reserved.</p>
+            <p>Registered in England & Wales | Company No. [Enter Company Number]</p>
+        </div>
+    </footer>
+
+</body>
+</html>
