@@ -87,7 +87,7 @@ body {
 
 /* Hero Section */
 .hero {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('images/manchester_skyline.jpeg');
+    background-image: linear-gradient(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.25)), url('images/manchester_skyline.jpeg');
     background-size: cover;
     background-position: center;
     color: var(--white-color);
@@ -144,7 +144,27 @@ body {
 
 /* Leadership Section */
 #leadership {
-    background-color: var(--light-bg-color);
+    background-image: url('images/library.jpeg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+}
+
+#leadership::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(255, 255, 255, 0.85); /* Semi-transparent white overlay */
+    z-index: 1;
+}
+
+#leadership > .container {
+    position: relative;
+    z-index: 2;
 }
 
 .leadership-content {
